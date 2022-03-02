@@ -1,27 +1,23 @@
 """
-<Self_Diagnosis_Macro(UNI)> 22.3.1. (TUE) 12:00
+<Self_Diagnosis_Macro(UNI)> 22.3.3. (THU) 00:03
 * Made by Yoonmen *
 """
 
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 import chromedriver_autoinstaller
-from selenium.common.exceptions import NoSuchElementException, NoAlertPresentException, StaleElementReferenceException
 import time
 import csv
 from selenium.webdriver.common.alert import Alert
-from selenium.webdriver.support.ui import Select
-from win10toast import ToastNotifier
-import os
 import pyautogui
 
-# << Default Setting (1/4) >> --------------------
+# << Default Setting (1/5) >> --------------------
 
 option = Options()
 option.add_argument("start-maximized")
 
 
-# << Read CSV File (2/4) >> --------------------
+# << Read CSV File (2/5) >> --------------------
 
 ## Read CSV
 CSV_file = open("./DB/user.csv", "r", encoding = "utf-8")
@@ -37,7 +33,7 @@ del CSV_data[0]
 userNum = len(CSV_data)
 
 
-# << chromedriver ON (3/4) >> --------------------
+# << chromedriver ON (3/5) >> --------------------
 
 chromeVer = chromedriver_autoinstaller.get_chrome_version().split(".")[0]
 
@@ -51,12 +47,13 @@ except:
 driver.implicitly_wait(1)
 
 
-# << Start self-diagnosis (4/4) >> --------------------
-
-driver.get("https://onestop.kumoh.ac.kr/html/etc/w_etc_survey_selfchk.html")
-time.sleep(10)
+# << Start self-diagnosis (4/5) >> --------------------
 
 for i in range(userNum) : 
+    ## (자가진단 페이지 입장)
+    driver.get("https://onestop.kumoh.ac.kr/html/etc/w_etc_survey_selfchk.html")
+    time.sleep(10)
+
     ## (시작 ~ 사용자 정보 입력)
     pyautogui.write(CSV_data[i][1])
     driver.find_element_by_xpath("//*[@id=\"Form_비밀번호.비밀번호\"]").send_keys(CSV_data[i][2])
@@ -75,3 +72,8 @@ for i in range(userNum) :
     Alert(driver).accept()
     driver.switch_to_alert
     Alert(driver).accept()
+
+
+# << End self-diagnosis (5/5) >> --------------------
+
+driver.close()
