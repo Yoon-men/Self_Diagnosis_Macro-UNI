@@ -1,4 +1,4 @@
-![whale_Te2oeDVyto](https://user-images.githubusercontent.com/64591335/156881007-6828ddfa-e4fb-48b3-97d6-dc171340c4ac.png)
+<img src="https://user-images.githubusercontent.com/64591335/156881007-6828ddfa-e4fb-48b3-97d6-dc171340c4ac.png" width="50%">
 
 # What the fuck is this?
 기숙사 자가진단 매크로 프로그램입니다.
