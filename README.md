@@ -1,3 +1,7 @@
+```
+현재 자가진단 운영 기간이 아니기 때문에 사용할 수 없습니다.
+```
+
 <img src="https://user-images.githubusercontent.com/64591335/156881007-6828ddfa-e4fb-48b3-97d6-dc171340c4ac.png" width="50%">
 
 # What the fuck is this?
